@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"runtime/pprof"
 	"time"
@@ -87,7 +89,7 @@ func main() {
 						format := c.String("format")
 						switch format {
 						case "raw":
-							b, err := conn.GetRawSessionData()
+							b, err := conn.GetSessionDataBytes()
 							if err != nil {
 								fmt.Fprintln(app.Writer, err)
 								return
@@ -112,14 +114,30 @@ func main() {
 					Usage: "dump telemetry data",
 					Flags: dumpFlags,
 					Action: func(c *cli.Context) {
-						filename := "telemetry-test.ibt"
+						filename := "disktelemetry.ibt"
 						f, err := os.Open(filename)
 						if err != nil {
 							fmt.Fprintln(os.Stdout, err)
 							return
 						}
 
-						tr := irsdk.NewTelemetryReader(f)
+						// Start profiling
+						pf, err := os.Create("cpu.prof")
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						pprof.StartCPUProfile(pf)
+						defer pprof.StopCPUProfile()
+
+						data, err := ioutil.ReadAll(f)
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						tr := irsdk.NewTelemetryReader(data)
 
 						// @TODO: profile GetAllDataPoints()
 						datapoints, err := tr.GetAllDataPoints()
@@ -127,12 +145,13 @@ func main() {
 							fmt.Fprintln(os.Stderr, err)
 						}
 
-						for _, dp := range datapoints {
-							fmt.Println(dp.OnPitRoad)
-						}
+						// first := 0
+						// fmt.Printf("%+v\n", datapoints[first])
 
 						last := len(datapoints) - 1
-						fmt.Printf("%+v\n", datapoints[last])
+						fmt.Printf("%+v\n", datapoints[last].RPM)
+						fmt.Printf("%+v\n", datapoints[last].IsOnTrack)
+						fmt.Printf("%+v\n", datapoints[last].CarIdxEstTime)
 
 						return
 					},
@@ -144,6 +163,130 @@ func main() {
 					Action: func(c *cli.Context) {
 						err := "Not yet implemented"
 						fmt.Fprintln(os.Stderr, err)
+						return
+
+						// conn, err := irsdk.NewConnection()
+						// if err != nil {
+						// 	fmt.Println(os.Stderr, err)
+						// 	return
+						// }
+					},
+				},
+				{
+					Name:  "varheaders",
+					Usage: "dump varheaders from disk telemetry",
+					Flags: dumpFlags,
+					Action: func(c *cli.Context) {
+
+						type jsonVar struct {
+							Type       string
+							Name       string
+							Desc       string
+							Unit       string
+							MemMapData bool
+							DiskData   bool
+						}
+
+						// varNames := make(map[string]*struct{}, 0)
+						jsonVars := make(map[string]*jsonVar, 0)
+
+						// Get connection varHeaders
+						filename := "memmap.bin"
+						f, err := os.Open(filename)
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						data, err := ioutil.ReadAll(f)
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						tr := irsdk.NewTelemetryReader(data)
+
+						connectionVarHeaders, err := tr.GetVarHeaders()
+						if err != nil {
+							fmt.Fprintln(os.Stderr, err)
+						}
+
+						for _, varHeader := range connectionVarHeaders {
+							if _, ok := jsonVars[varHeader.Name]; ok {
+								jsonVars[varHeader.Name].MemMapData = true
+								continue
+							}
+
+							jsonVar := &jsonVar{
+								Type:       varHeader.Type.String(),
+								Name:       varHeader.Name,
+								Desc:       varHeader.Desc,
+								Unit:       varHeader.Unit,
+								MemMapData: true,
+								DiskData:   false,
+							}
+							jsonVars[varHeader.Name] = jsonVar
+						}
+
+						// Get disk varHeaders
+						filename = "disktelemetry.ibt"
+						f, err = os.Open(filename)
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						data, err = ioutil.ReadAll(f)
+						if err != nil {
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
+						tr = irsdk.NewTelemetryReader(data)
+
+						diskVarHeaders, err := tr.GetVarHeaders()
+						if err != nil {
+							fmt.Fprintln(os.Stderr, err)
+						}
+
+						for _, varHeader := range diskVarHeaders {
+							if _, ok := jsonVars[varHeader.Name]; ok {
+								jsonVars[varHeader.Name].DiskData = true
+								continue
+							}
+
+							jsonVar := &jsonVar{
+								Type:       varHeader.Type.String(),
+								Name:       varHeader.Name,
+								Desc:       varHeader.Desc,
+								Unit:       varHeader.Unit,
+								MemMapData: false,
+								DiskData:   true,
+							}
+							jsonVars[varHeader.Name] = jsonVar
+						}
+
+						dumpData := make([]*jsonVar, 0)
+						for _, jsonVar := range jsonVars {
+							dumpData = append(dumpData, jsonVar)
+						}
+
+						format := c.String("format")
+						switch format {
+						case "raw", "struct":
+							fmt.Printf("%+v\n", dumpData)
+						case "json":
+							jsonData, err := json.MarshalIndent(dumpData, "", "  ") // convert to JSON
+							if err != nil {
+								fmt.Fprintln(os.Stderr, err)
+							}
+							fmt.Println(string(jsonData))
+						default:
+							err := fmt.Sprintf("Unknow format: %v", format)
+							fmt.Fprintln(os.Stdout, err)
+							return
+						}
+
 						return
 					},
 				},
@@ -177,7 +320,7 @@ func main() {
 						}
 
 						fps := 60
-						duration := 60
+						duration := 10
 						loops := fps * duration
 						// conn.SetMaxFPS(fps)
 

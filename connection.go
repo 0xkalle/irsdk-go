@@ -8,8 +8,6 @@ import (
 
 	"golang.org/x/text/encoding/charmap"
 	"golang.org/x/text/transform"
-
-	"github.com/leonb/irsdk-go/utils"
 )
 
 var (
@@ -17,7 +15,7 @@ var (
 )
 
 func NewConnection() (*Connection, error) {
-	sdk, err := utils.NewIrsdk()
+	sdk, err := NewIrsdk()
 	if err != nil {
 		return nil, err
 	}
@@ -32,7 +30,7 @@ func NewConnection() (*Connection, error) {
 
 type Connection struct {
 	timeout        time.Duration
-	sdk            *utils.Irsdk
+	sdk            *Irsdk
 	maxFPS         int
 	lastUpdateTime time.Time
 }
@@ -51,7 +49,7 @@ func (c *Connection) IsConnected() bool {
 	return c.sdk.IsConnected()
 }
 
-func (c *Connection) GetHeader() (*utils.Header, error) {
+func (c *Connection) GetHeader() (*Header, error) {
 	return c.sdk.GetHeader()
 }
 
@@ -85,33 +83,13 @@ func (c *Connection) GetTelemetryDataFiltered(fields []string) (*TelemetryData, 
 	return nil, nil
 }
 
-func (c *Connection) GetRawSessionData() ([]byte, error) {
-	b := c.sdk.GetSessionInfoStr()
-	if b == nil {
-		return nil, nil
-	}
-
-	sep := []byte("\n...")
-	pieces := bytes.Split(b, sep)
-	if len(pieces) > 0 {
-		return pieces[0], nil
-	}
-
-	return b, nil
+func (c *Connection) GetSessionDataBytes() ([]byte, error) {
+	tr := NewTelemetryReader(c.sdk.c.sharedMem)
+	return tr.GetSessionDataBytes()
 }
 
 func (c *Connection) GetSessionData() (*SessionData, error) {
-	b, err := c.GetRawSessionData()
-	if err != nil {
-		return nil, err
-	}
-
-	if b == nil {
-		return nil, ErrEmptySessionData
-	}
-
-	b = bytesToUtf8(b)
-	return NewSessionDataFromBytes(b)
+	return c.sdk.GetSessionData()
 }
 
 func (c *Connection) SendCommand() error {
@@ -178,6 +156,75 @@ func (c *Connection) SetMaxFPS(maxFPS int) {
 func (c *Connection) Disconnect() error {
 	c.sdk.Shutdown()
 	return nil
+}
+
+// @TODO: should this accept an io.Reader?
+func (c *Connection) BytesToTelemetryStruct(data []byte) (*TelemetryData, error) {
+	// Create an new struct in the same memory location so reflect values can be
+	// cached
+	td := NewTelemetryData()
+	numVars := c.sdk.GetNumVars()
+
+	for i := 0; i <= numVars; i++ {
+		varHeader, err := c.sdk.GetVarHeaderEntry(i)
+		if err != nil {
+			continue
+		}
+
+		if varHeader == nil {
+			continue
+		}
+
+		td.addVarHeaderData(varHeader, data)
+	}
+
+	return td, nil
+}
+
+// @TODO: should this accept an io.Reader?
+// @TODO: this shouldn't be on the connection because it can also be used by
+// disk based telemetry (.ibt)
+func (c *Connection) BytesToTelemetryStructFiltered(data []byte, fields []string) *TelemetryData {
+	// Create an new struct in the same memory location so reflect values can be
+	// cached
+	td := NewTelemetryData()
+	numVars := c.sdk.GetNumVars()
+
+	for i := 0; i <= numVars; i++ {
+		varHeader, err := c.sdk.GetVarHeaderEntry(i)
+		if err != nil {
+			continue
+		}
+
+		if varHeader == nil {
+			continue
+		}
+
+		if fields == nil || len(fields) == 0 {
+			// fields is empty: add everything
+			td.addVarHeaderData(varHeader, data)
+			continue
+		}
+
+		found := false
+
+		for _, v := range fields {
+			if v == varHeader.Name {
+				// Found varName in fields, skip looping through fields
+				found = true
+				break
+			}
+		}
+
+		if found == false {
+			// var not in fieds: skip varHeader
+			continue
+		}
+
+		td.addVarHeaderData(varHeader, data)
+	}
+
+	return td
 }
 
 // bytesToUtf8 is used to convert stringdata from iRacing to UTF-8 so it can

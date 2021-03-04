@@ -1,0 +1,1658 @@
+[
+  {
+    "Type": "float",
+    "Name": "RRtempR",
+    "Desc": "RR tire right surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "double",
+    "Name": "SessionTime",
+    "Desc": "Seconds since session start",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "SessionLapsRemain",
+    "Desc": "Laps left till session ends",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "ReplayFrameNum",
+    "Desc": "Integer replay frame number (60 per second)",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "IsDiskLoggingEnabled",
+    "Desc": "0=disk based telemetry turned off  1=turned on",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "OnPitRoad",
+    "Desc": "Is the player car on pit road between the cones",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelPctTorqueSignStops",
+    "Desc": "Force feedback % max torque on steering shaft signed stops",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFshockVel",
+    "Desc": "RF shock velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "FrameRate",
+    "Desc": "Average frames per second",
+    "Unit": "fps",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitchRate",
+    "Desc": "Pitch rate",
+    "Unit": "rad/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "WindDir",
+    "Desc": "Wind direction at start/finish line",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "OilLevel",
+    "Desc": "Engine oil level",
+    "Unit": "l",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFwearM",
+    "Desc": "RF tire middle percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Brake",
+    "Desc": "0=brake released to 1=max pedal force",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RelativeHumidity",
+    "Desc": "Relative Humidity",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "dcThrottleShape",
+    "Desc": "In car throttle shape adjustment",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRspeed",
+    "Desc": "LR wheel speed",
+    "Unit": "m/s",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapBestLapTime",
+    "Desc": "Players best lap time",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapCurrentLapTime",
+    "Desc": "Estimate of players current lap time as shown in F3 box",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFwearL",
+    "Desc": "LF tire left percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRwearM",
+    "Desc": "LR tire middle percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CarIdxRPM",
+    "Desc": "Engine rpm by car index",
+    "Unit": "revs/min",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapBestNLapTime",
+    "Desc": "Player best N average lap time",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitRepairLeft",
+    "Desc": "Time left for mandatory pit repairs if repairs are active",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "ShiftGrindRPM",
+    "Desc": "RPM of shifter grinding noise",
+    "Unit": "RPM",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "WaterTemp",
+    "Desc": "Engine coolant temp",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRwearR",
+    "Desc": "RR tire right percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempCM",
+    "Desc": "LR tire middle carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRshockDefl",
+    "Desc": "LR shock deflection",
+    "Unit": "m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempCR",
+    "Desc": "LR tire right carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "RadioTransmitRadioIdx",
+    "Desc": "The radio index of the current person speaking on the radio",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "CarIdxSteer",
+    "Desc": "Steering wheel angle by car index",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "RPM",
+    "Desc": "Engine rpm",
+    "Unit": "revs/min",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "DCLapStatus",
+    "Desc": "Status of driver change lap requirements",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "IsInGarage",
+    "Desc": "1=Car in garage physics running",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "double",
+    "Name": "ReplaySessionTime",
+    "Desc": "Seconds since replay session start",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "Voltage",
+    "Desc": "Engine voltage",
+    "Unit": "V",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRshockVel",
+    "Desc": "LR shock velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempM",
+    "Desc": "LF tire middle surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFrideHeight",
+    "Desc": "RF ride height",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "Lap",
+    "Desc": "Lap count",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRwearL",
+    "Desc": "LR tire left percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFpressure",
+    "Desc": "RF tire pressure",
+    "Unit": "kPa",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "FuelLevelPct",
+    "Desc": "Percent fuel remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bitfield",
+    "Name": "SessionFlags",
+    "Desc": "Session flags",
+    "Unit": "irsdk_Flags",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "int",
+    "Name": "PlayerCarPosition",
+    "Desc": "Players position in race",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionLastlLap_DD",
+    "Desc": "Rate of change of delta time for session last lap",
+    "Unit": "s/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CamCameraNumber",
+    "Desc": "Active camera number",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "IsOnTrackCar",
+    "Desc": "1=Car on track physics running",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelPctTorqueSign",
+    "Desc": "Force feedback % max torque on steering shaft signed",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "BrakeRaw",
+    "Desc": "Raw brake input 0=brake released to 1=max pedal force",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempR",
+    "Desc": "LF tire right surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CpuUsageBG",
+    "Desc": "Percent of available tim bg thread took with a 1 sec avg",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "AirDensity",
+    "Desc": "Density of air at start/finish line",
+    "Unit": "kg/m^3",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRtempM",
+    "Desc": "RR tire middle surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CarIdxEstTime",
+    "Desc": "Estimated time to reach current location on track",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionBestLap",
+    "Desc": "Delta time for session best lap",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "LapDeltaToSessionLastlLap_OK",
+    "Desc": "Delta time for session last lap is valid",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Yaw",
+    "Desc": "Yaw orientation",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CamCarIdx",
+    "Desc": "Active camera's focus car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "RFwearL",
+    "Desc": "RF tire left percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRpressure",
+    "Desc": "LR tire pressure",
+    "Unit": "kPa",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CarIdxPosition",
+    "Desc": "Cars position in race by car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionBestLap_DD",
+    "Desc": "Rate of change of delta time for session best lap",
+    "Unit": "s/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFwearR",
+    "Desc": "RF tire right percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFspeed",
+    "Desc": "RF wheel speed",
+    "Unit": "m/s",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempL",
+    "Desc": "LR tire left surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "ReplayFrameNumEnd",
+    "Desc": "Integer replay frame number from end of tape",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "int",
+    "Name": "LapBestLap",
+    "Desc": "Players best lap number",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bitfield",
+    "Name": "CamCameraState",
+    "Desc": "State of camera system",
+    "Unit": "irsdk_CameraState",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "ShiftPowerPct",
+    "Desc": "Friction torque applied to gears when shifting or grinding",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitSvLFP",
+    "Desc": "Pit service left front tire pressure",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "dcABS",
+    "Desc": "In car abs adjustment",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFcoldPressure",
+    "Desc": "RF tire cold pressure  as set in the garage",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFspeed",
+    "Desc": "LF wheel speed",
+    "Unit": "m/s",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRrideHeight",
+    "Desc": "LR ride height",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "RadioTransmitCarIdx",
+    "Desc": "The car index of the current person speaking on the radio",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelAngleMax",
+    "Desc": "Steering wheel max angle",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRcoldPressure",
+    "Desc": "RR tire cold pressure  as set in the garage",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRshockVel",
+    "Desc": "RR shock velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempL",
+    "Desc": "LF tire left surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "PlayerCarClassPosition",
+    "Desc": "Players class position in race",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "VertAccel",
+    "Desc": "Vertical acceleration (including gravity)",
+    "Unit": "m/s^2",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "ReplayPlaySlowMotion",
+    "Desc": "0=not slow motion  1=replay is in slow motion",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LRwearR",
+    "Desc": "LR tire right percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFshockDefl",
+    "Desc": "LF shock deflection",
+    "Unit": "m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Alt",
+    "Desc": "Altitude in meters",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempM",
+    "Desc": "LR tire middle surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRtempL",
+    "Desc": "RR tire left surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CarIdxTrackSurface",
+    "Desc": "Track surface type by car index",
+    "Unit": "irsdk_TrkLoc",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "Clutch",
+    "Desc": "0=disengaged to 1=fully engaged",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToOptimalLap",
+    "Desc": "Delta time for optimal lap",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "VelocityX",
+    "Desc": "X velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitSvRFP",
+    "Desc": "Pit service right front tire pressure",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempCL",
+    "Desc": "RF tire left carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFshockVel",
+    "Desc": "LF shock velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "RadioTransmitFrequencyIdx",
+    "Desc": "The frequency index of the current person speaking on the radio",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "int",
+    "Name": "CarIdxClassPosition",
+    "Desc": "Cars class position in race by car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapDistPct",
+    "Desc": "Percentage distance around lap",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionLastlLap",
+    "Desc": "Delta time for session last lap",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "Skies",
+    "Desc": "Skies (0=clear/1=p cloudy/2=m cloudy/3=overcast)",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "OilPress",
+    "Desc": "Engine oil pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CarIdxLap",
+    "Desc": "Lap count by car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapDist",
+    "Desc": "Meters traveled from S/F this lap",
+    "Unit": "m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "double",
+    "Name": "Lon",
+    "Desc": "Longitude in decimal degrees",
+    "Unit": "deg",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "Gear",
+    "Desc": "-1=reverse  0=neutral  1..n=current gear",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionOptimalLap",
+    "Desc": "Delta time for session optimal lap",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitSvRRP",
+    "Desc": "Pit service right rear tire pressure",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "dcTractionControl",
+    "Desc": "In car traction control adjustment",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRbrakeLinePress",
+    "Desc": "RR brake line pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRbrakeLinePress",
+    "Desc": "LR brake line pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempR",
+    "Desc": "LR tire right surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToSessionOptimalLap_DD",
+    "Desc": "Rate of change of delta time for session optimal lap",
+    "Unit": "s/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "DCDriversSoFar",
+    "Desc": "Number of team drivers who have run a stint",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelPctDamper",
+    "Desc": "Force feedback % max damping",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "ReplayPlaySpeed",
+    "Desc": "Replay playback speed",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "RRtempCL",
+    "Desc": "RR tire left carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRtempCM",
+    "Desc": "RR tire middle carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRtempCL",
+    "Desc": "LR tire left carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFbrakeLinePress",
+    "Desc": "RF brake line pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempCM",
+    "Desc": "LF tire middle carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFshockDefl",
+    "Desc": "RF shock deflection",
+    "Unit": "m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRrideHeight",
+    "Desc": "RR ride height",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "EnterExitReset",
+    "Desc": "Indicate action the reset key will take 0 enter 1 exit 2 reset",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitOptRepairLeft",
+    "Desc": "Time left for optional repairs if repairs are active",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "FuelLevel",
+    "Desc": "Liters of fuel remaining",
+    "Unit": "l",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFpressure",
+    "Desc": "LF tire pressure",
+    "Unit": "kPa",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRshockDefl",
+    "Desc": "RR shock deflection",
+    "Unit": "m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "SessionUniqueID",
+    "Desc": "Session ID",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "AirTemp",
+    "Desc": "Temperature of air at start/finish line",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bitfield",
+    "Name": "EngineWarnings",
+    "Desc": "Bitfield for warning lights",
+    "Unit": "irsdk_EngineWarnings",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bitfield",
+    "Name": "PitSvFlags",
+    "Desc": "Bitfield of pit service checkboxes",
+    "Unit": "irsdk_PitSvFlags",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "PitSvLRP",
+    "Desc": "Pit service left rear tire pressure",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "OilTemp",
+    "Desc": "Engine oil temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRtempCR",
+    "Desc": "RR tire right carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRspeed",
+    "Desc": "RR wheel speed",
+    "Unit": "m/s",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempR",
+    "Desc": "RF tire right surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CFSRrideHeight",
+    "Desc": "Center front splitter ride height",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "FuelPress",
+    "Desc": "Engine fuel pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "RaceLaps",
+    "Desc": "Laps completed in race",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "int",
+    "Name": "LapLasNLapSeq",
+    "Desc": "Player num consecutive clean laps completed for N average",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "WeatherType",
+    "Desc": "Weather type (0=constant  1=dynamic)",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "WindVel",
+    "Desc": "Wind velocity at start/finish line",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelTorque",
+    "Desc": "Output torque on steering shaft",
+    "Unit": "N*m",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "ThrottleRaw",
+    "Desc": "Raw throttle input 0=off throttle to 1=full throttle",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "WaterLevel",
+    "Desc": "Engine coolant level",
+    "Unit": "l",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRwearL",
+    "Desc": "RR tire left percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempL",
+    "Desc": "RF tire left surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "IsDiskLoggingActive",
+    "Desc": "0=disk based telemetry file not being written  1=being written",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "LapDeltaToSessionBestLap_OK",
+    "Desc": "Delta time for session best lap is valid",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LatAccel",
+    "Desc": "Lateral acceleration (including gravity)",
+    "Unit": "m/s^2",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "VelocityZ",
+    "Desc": "Z velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Roll",
+    "Desc": "Roll orientation",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelPeakForceNm",
+    "Desc": "Peak torque mapping to direct input units for FFB",
+    "Unit": "N*m",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempCR",
+    "Desc": "RF tire right carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "SessionState",
+    "Desc": "Session state",
+    "Unit": "irsdk_SessionState",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "CarIdxGear",
+    "Desc": "-1=reverse  0=neutral  1..n=current gear by car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "Throttle",
+    "Desc": "0=off throttle to 1=full throttle",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapLastNLapTime",
+    "Desc": "Player last N average lap time",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFwearR",
+    "Desc": "LF tire right percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRpressure",
+    "Desc": "RR tire pressure",
+    "Unit": "kPa",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "LapBestNLapLap",
+    "Desc": "Player last lap in best N average lap time",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "LapDeltaToSessionOptimalLap_OK",
+    "Desc": "Delta time for session optimal lap is valid",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "dcFuelMixture",
+    "Desc": "In car fuel mixture adjustment",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "ManifoldPress",
+    "Desc": "Engine manifold pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFbrakeLinePress",
+    "Desc": "LF brake line pressure",
+    "Unit": "bar",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempCR",
+    "Desc": "LF tire right carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "double",
+    "Name": "Lat",
+    "Desc": "Latitude in decimal degrees",
+    "Unit": "deg",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "dcBrakeBias",
+    "Desc": "In car brake bias adjustment",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "SessionNum",
+    "Desc": "Session number",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "IsReplayPlaying",
+    "Desc": "0=replay not playing  1=replay playing",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToBestLap",
+    "Desc": "Delta time for best lap",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToOptimalLap_DD",
+    "Desc": "Rate of change of delta time for optimal lap",
+    "Unit": "s/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Pitch",
+    "Desc": "Pitch orientation",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "AirPressure",
+    "Desc": "Pressure of air at start/finish line",
+    "Unit": "Hg",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "ReplaySessionNum",
+    "Desc": "Replay session number",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LFtempCL",
+    "Desc": "LF tire left carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFwearM",
+    "Desc": "LF tire middle percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "TrackTemp",
+    "Desc": "Temperature of track at start/finish line",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "int",
+    "Name": "DisplayUnits",
+    "Desc": "Default units for the user interface 0 = english 1 = metric",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "bool",
+    "Name": "CarIdxOnPitRoad",
+    "Desc": "On pit road between the cones by car index",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "LapLastLapTime",
+    "Desc": "Players last lap time",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "LapDeltaToBestLap_OK",
+    "Desc": "Delta time for best lap is valid",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "LapDeltaToOptimalLap_OK",
+    "Desc": "Delta time for optimal lap is valid",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "YawRate",
+    "Desc": "Yaw rate",
+    "Unit": "rad/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "Speed",
+    "Desc": "GPS vehicle speed",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "DriverMarker",
+    "Desc": "Driver activated flag",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CarIdxLapDistPct",
+    "Desc": "Percentage distance around lap by car index",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "int",
+    "Name": "CamGroupNumber",
+    "Desc": "Active camera group number",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "PitSvFuel",
+    "Desc": "Pit service fuel add amount",
+    "Unit": "l",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFcoldPressure",
+    "Desc": "LF tire cold pressure  as set in the garage",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "double",
+    "Name": "SessionTimeRemain",
+    "Desc": "Seconds left till session ends",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "bool",
+    "Name": "IsOnTrack",
+    "Desc": "1=Car on track physics running with player in car",
+    "Unit": "",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "CarIdxF2Time",
+    "Desc": "Race time behind leader or fastest lap time otherwise",
+    "Unit": "s",
+    "MemMapData": true,
+    "DiskData": false
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelPctTorque",
+    "Desc": "Force feedback % max torque on steering shaft unsigned",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "ShiftIndicatorPct",
+    "Desc": "DEPRECATED use DriverCarSLBlinkRPM instead",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "SteeringWheelAngle",
+    "Desc": "Steering wheel angle",
+    "Unit": "rad",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RollRate",
+    "Desc": "Roll rate",
+    "Unit": "rad/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "VelocityY",
+    "Desc": "Y velocity",
+    "Unit": "m/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "FogLevel",
+    "Desc": "Fog level",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LRcoldPressure",
+    "Desc": "LR tire cold pressure  as set in the garage",
+    "Unit": "kPa",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempCM",
+    "Desc": "RF tire middle carcass temperature",
+    "Unit": "C",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RFtempM",
+    "Desc": "RF tire middle surface temperature",
+    "Unit": "C",
+    "MemMapData": false,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LapDeltaToBestLap_DD",
+    "Desc": "Rate of change of delta time for best lap",
+    "Unit": "s/s",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LongAccel",
+    "Desc": "Longitudinal acceleration (including gravity)",
+    "Unit": "m/s^2",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "RRwearM",
+    "Desc": "RR tire middle percent tread remaining",
+    "Unit": "%",
+    "MemMapData": true,
+    "DiskData": true
+  },
+  {
+    "Type": "float",
+    "Name": "LFrideHeight",
+    "Desc": "LF ride height",
+    "Unit": "m",
+    "MemMapData": false,
+    "DiskData": true
+  }
+]

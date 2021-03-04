@@ -1,4 +1,4 @@
-package utils
+package irsdk
 
 /*
  The IRSDK is a simple api that lets clients access telemetry data from the
@@ -47,12 +47,33 @@ package utils
 // Constant Definitions
 
 type StatusField int32
+type time_t int32
 
 const (
 	StatusConnected StatusField = 1
 )
 
 type VarType int32
+
+// Stringer method
+func (v VarType) String() string {
+	switch v {
+	case CharType:
+		return "char"
+	case BoolType:
+		return "bool"
+	case IntType:
+		return "int"
+	case BitfieldType:
+		return "bitfield"
+	case FloatType:
+		return "float"
+	case DoubleType:
+		return "double"
+	default:
+		return "unkown"
+	}
+}
 
 const (
 	// 1 byte
@@ -185,17 +206,28 @@ const (
 //----
 //
 
-type VarHeader struct {
+type VarHeaderRaw struct {
 	Type   VarType // VarType
-	Offset int32   // offset fron start of buffer row
-	Count  int32   // number of entrys (array)
+	Offset int32   `json:"-"` // offset fron start of buffer row
+	Count  int32   `json:"-"` // number of entrys (array)
 	// so length in bytes would be VarTypeBytes[type] * count
 
-	Pad [1]int32 // (16 byte align)
+	Pad [1]int32 `json:"-"` // (16 byte align)
 
 	Name [MAX_STRING]byte
 	Desc [MAX_DESC]byte
 	Unit [MAX_STRING]byte // something like "kg/m^2"
+}
+
+type VarHeader struct {
+	Type   VarType // VarType
+	Offset int32   `json:"-"` // offset fron start of buffer row
+	Count  int32   `json:"-"` // number of entrys (array)
+	// so length in bytes would be VarTypeBytes[type] * count
+
+	Name string
+	Desc string
+	Unit string // something like "kg/m^2"
 }
 
 type VarBuf struct {
@@ -226,7 +258,7 @@ type Header struct {
 
 // sub header used when writing telemetry to disk
 type DiskSubHeader struct {
-	sessionStartDate   int32
+	sessionStartDate   time_t
 	sessionStartTime   float64
 	sessionEndTime     float64
 	sessionLapCount    int32

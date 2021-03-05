@@ -101,6 +101,7 @@ func (sdk *SDK) ReadVariableValues() bool {
 						log.Fatal(err)
 					}
 					v.Value = helpers.Byte4toBitField(rbuf)
+					fmt.Println(v.Value)
 				case 4:
 					rbuf = make([]byte, 4)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
@@ -134,5 +135,5 @@ func (sdk *SDK) GetVar(name string) (Variable, error) {
 	if v, ok := sdk.TelemetryVars.Vars[name]; ok {
 		return v, nil
 	}
-	return Variable{}, fmt.Errorf("Telemetry variable %q not found", name)
+	return Variable{}, nil
 }

@@ -156,13 +156,13 @@ type TelemetryData struct {
 	Skies       int
 
 	// bitfields
-	SessionFlags   map[string]bool
-	CamCameraState map[string]bool
-	EngineWarnings map[string]bool
-	CarLeftRight   map[string]bool
+	SessionFlags   string // Todo make map[string]bool
+	CamCameraState string // Todo map[string]bool
+	EngineWarnings string // Todo map[string]bool
+	CarLeftRight   string // Todo map[string]bool
 
 	// Only used in disk based telemetry data
-	PitSvFlags map[string]bool
+	PitSvFlags string // Todo make map[string]bool
 
 	// floats
 	FrameRate                       float32

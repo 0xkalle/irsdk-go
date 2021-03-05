@@ -1,7 +1,9 @@
 package sdk
 
 import (
+	"bitbucket.org/avd/go-ipc/mmf"
 	"fmt"
+	"github.com/phumberdroz/irsdk-go/internal/shm"
 	"github.com/phumberdroz/irsdk-go/pkg/session"
 	"golang.org/x/text/encoding/charmap"
 	"io"
@@ -12,12 +14,12 @@ import (
 type reader interface {
 	io.Reader
 	io.ReaderAt
-	io.Closer
+	//io.Closer
 }
 
 type SDK struct {
 	r             reader
-	h             Header
+	Header        Header
 	s             session.SessionData
 	TelemetryVars TelemetryVars
 	lastValidData int64
@@ -42,9 +44,21 @@ type Variable struct {
 	rawBytes    []byte
 }
 
-func Init(r reader) (SDK, error) {
+const fileMapName string = "Local\\IRSDKMemMapFileName"
+const fileMapSize int = 1164 * 1024
+
+func InitSdk(r reader) (SDK, error) {
 	if r == nil {
-		return SDK{}, fmt.Errorf("not yet implemented")
+		object, err := shm.NewWindowsNativeMemoryObject(fileMapName, 0, fileMapSize)
+		if err != nil {
+			return SDK{}, err
+		}
+		roRegion, err := mmf.NewMemoryRegion(object, mmf.MEM_READ_ONLY, 0, fileMapSize)
+		if err != nil {
+			return SDK{}, err
+		}
+		regionReader := mmf.NewMemoryRegionReader(roRegion)
+		r = regionReader
 	}
 	/*
 		Todo consider sending event
@@ -59,15 +73,15 @@ func Init(r reader) (SDK, error) {
 	if err != nil {
 		return SDK{}, err
 	}
-	sdk.h = h
+	sdk.Header = h
 	//if sdk.tVars != nil {
 	//	sdk.tVars.vars = nil
 	//}
 	if !sdk.SessionStatusOK() {
 		return SDK{}, fmt.Errorf("session status is not okay")
 	}
-	sdk.TelemetryVars = readVariableHeaders(sdk.r, &sdk.h)
-	sdk.readVariableValues()
+	sdk.TelemetryVars = readVariableHeaders(sdk.r, &sdk.Header)
+	sdk.ReadVariableValues()
 	return sdk, nil
 }
 
@@ -75,8 +89,8 @@ func (s SDK) GetSessionData() ([]byte, error) {
 	if !s.SessionStatusOK() {
 		return nil, fmt.Errorf("session Status not ok")
 	}
-	rbuf := make([]byte, s.h.SessionInfoLen)
-	_, err := s.r.ReadAt(rbuf, int64(s.h.SessionInfoOffset))
+	rbuf := make([]byte, s.Header.SessionInfoLen)
+	_, err := s.r.ReadAt(rbuf, int64(s.Header.SessionInfoOffset))
 	if err != nil {
 		return nil, err
 	}
@@ -86,10 +100,16 @@ func (s SDK) GetSessionData() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	return rbuf[:len(rbuf)-5], nil
+	var r []byte
+	for _, b := range rbuf {
+		if b != byte(0) {
+			r = append(r, b)
+		}
+	}
+	return r, nil
+	//return rbuf[:len(rbuf)], nil
 }
 
 func (s SDK) SessionStatusOK() bool {
-	return s.h.Status > 0
+	return s.Header.Status > 0
 }

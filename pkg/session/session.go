@@ -199,29 +199,29 @@ type Drivers struct {
 	CarScreenName      string `yaml:"CarScreenName"`
 	CarScreenNameShort string `yaml:"CarScreenNameShort"`
 	//CarClassShortName       interface{} `yaml:"CarClassShortName"`
-	CarClassRelSpeed        int    `yaml:"CarClassRelSpeed"`
-	CarClassLicenseLevel    int    `yaml:"CarClassLicenseLevel"`
-	CarClassMaxFuelPct      string `yaml:"CarClassMaxFuelPct"`
-	CarClassWeightPenalty   string `yaml:"CarClassWeightPenalty"`
-	CarClassPowerAdjust     string `yaml:"CarClassPowerAdjust"`
-	CarClassDryTireSetLimit string `yaml:"CarClassDryTireSetLimit"`
-	CarClassColor           int    `yaml:"CarClassColor"`
-	IRating                 int    `yaml:"IRating"`
-	LicLevel                int    `yaml:"LicLevel"`
-	LicSubLevel             int    `yaml:"LicSubLevel"`
-	LicString               string `yaml:"LicString"`
-	LicColor                int    `yaml:"LicColor"`
-	IsSpectator             int    `yaml:"IsSpectator"`
-	CarDesignStr            string `yaml:"CarDesignStr"`
-	HelmetDesignStr         string `yaml:"HelmetDesignStr"`
-	SuitDesignStr           string `yaml:"SuitDesignStr"`
-	CarNumberDesignStr      string `yaml:"CarNumberDesignStr"`
-	CarSponsor1             int    `yaml:"CarSponsor_1"`
-	CarSponsor2             int    `yaml:"CarSponsor_2"`
-	ClubName                string `yaml:"ClubName"`
-	DivisionName            string `yaml:"DivisionName"`
-	CurDriverIncidentCount  int    `yaml:"CurDriverIncidentCount"`
-	TeamIncidentCount       int    `yaml:"TeamIncidentCount"`
+	CarClassRelSpeed        int         `yaml:"CarClassRelSpeed"`
+	CarClassLicenseLevel    int         `yaml:"CarClassLicenseLevel"`
+	CarClassMaxFuelPct      string      `yaml:"CarClassMaxFuelPct"`
+	CarClassWeightPenalty   string      `yaml:"CarClassWeightPenalty"`
+	CarClassPowerAdjust     string      `yaml:"CarClassPowerAdjust"`
+	CarClassDryTireSetLimit string      `yaml:"CarClassDryTireSetLimit"`
+	CarClassColor           int         `yaml:"CarClassColor"`
+	IRating                 int         `yaml:"IRating"`
+	LicLevel                int         `yaml:"LicLevel"`
+	LicSubLevel             int         `yaml:"LicSubLevel"`
+	LicString               string      `yaml:"LicString"`
+	LicColor                interface{} `yaml:"LicColor"` // Todo investigate returned: 0xundefined
+	IsSpectator             int         `yaml:"IsSpectator"`
+	CarDesignStr            string      `yaml:"CarDesignStr"`
+	HelmetDesignStr         string      `yaml:"HelmetDesignStr"`
+	SuitDesignStr           string      `yaml:"SuitDesignStr"`
+	CarNumberDesignStr      string      `yaml:"CarNumberDesignStr"`
+	CarSponsor1             int         `yaml:"CarSponsor_1"`
+	CarSponsor2             int         `yaml:"CarSponsor_2"`
+	ClubName                string      `yaml:"ClubName"`
+	DivisionName            string      `yaml:"DivisionName"`
+	CurDriverIncidentCount  int         `yaml:"CurDriverIncidentCount"`
+	TeamIncidentCount       int         `yaml:"TeamIncidentCount"`
 }
 type DriverInfo struct {
 	DriverCarIdx              int       `yaml:"DriverCarIdx"`

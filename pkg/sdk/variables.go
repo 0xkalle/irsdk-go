@@ -39,7 +39,7 @@ type varBuffer struct {
 func (s SDK) FindLatestBuffer() varBuffer {
 	var vb varBuffer
 	foundTickCount := 0
-	for i := 0; i < int(s.h.NumBuf); i++ {
+	for i := 0; i < int(s.Header.NumBuf); i++ {
 		rbuf := make([]byte, 16)
 		_, err := s.r.ReadAt(rbuf, int64(48+i*16))
 		if err != nil {
@@ -59,7 +59,7 @@ func (s SDK) FindLatestBuffer() varBuffer {
 	return vb
 }
 
-func (sdk *SDK) readVariableValues() bool {
+func (sdk *SDK) ReadVariableValues() bool {
 	newData := false
 	if sdk.SessionStatusOK() {
 		// find latest buffer for variables

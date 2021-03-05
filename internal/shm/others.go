@@ -3,8 +3,9 @@
 package shm
 
 import (
-	ipcShm "bitbucket.org/avd/go-ipc/shm"
 	"fmt"
+
+	ipcShm "bitbucket.org/avd/go-ipc/shm"
 )
 
 func NewWindowsNativeMemoryObject(_ string, _ int, _ int) (*ipcShm.MemoryObject, error) {

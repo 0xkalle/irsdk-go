@@ -1,14 +1,15 @@
 package sdk
 
 import (
-	"bitbucket.org/avd/go-ipc/mmf"
 	"fmt"
-	"github.com/phumberdroz/irsdk-go/internal/shm"
-	"github.com/phumberdroz/irsdk-go/pkg/session"
-	"golang.org/x/text/encoding/charmap"
 	"io"
 	"sync"
 	"time"
+
+	"bitbucket.org/avd/go-ipc/mmf"
+	"github.com/phumberdroz/irsdk-go/internal/shm"
+	"github.com/phumberdroz/irsdk-go/pkg/session"
+	"golang.org/x/text/encoding/charmap"
 )
 
 type reader interface {

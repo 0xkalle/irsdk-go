@@ -1,13 +1,15 @@
 package sdk_test
 
 import (
+	"os"
+	"testing"
+
 	"github.com/phumberdroz/irsdk-go/pkg/sdk"
 	"github.com/phumberdroz/irsdk-go/pkg/session"
+	"github.com/phumberdroz/irsdk-go/pkg/telemetry"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
-	"os"
-	"testing"
 )
 
 func TestInit(t *testing.T) {

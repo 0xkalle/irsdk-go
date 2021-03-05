@@ -2,9 +2,10 @@ package sdk
 
 import (
 	"fmt"
-	"github.com/phumberdroz/irsdk-go/pkg/helpers"
 	"log"
 	"time"
+
+	"github.com/phumberdroz/irsdk-go/pkg/helpers"
 )
 
 func readVariableHeaders(r reader, h *Header) TelemetryVars {

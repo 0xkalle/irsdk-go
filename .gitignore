@@ -1,8 +1,0 @@
-bindata.go
-assets/*
-!assets/.gitkeep
-cpu.prof
-ctags
-!vendor/*
-irsdk
-terminalhud

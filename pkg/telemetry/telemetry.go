@@ -270,7 +270,7 @@ type TelemetryData struct {
 	CarIdxF2Time                    float32
 	CarIdxEstTime                   float32
 	LapLastNLapTime                 float32
-	brakeLinePresse                 float32
+	BrakeLinePresse                 float32
 	DcBrakeBias                     float32
 	LapBestNLapTime                 float32
 

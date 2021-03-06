@@ -7,7 +7,7 @@ import (
 
 	"github.com/phumberdroz/irsdk-go/pkg/helpers"
 )
-
+// Todo make this return error
 func readVariableHeaders(r reader, h *Header) TelemetryVars {
 	vars := TelemetryVars{Vars: make(map[string]Variable, h.NumVars)}
 	for i := 0; i < int(h.NumVars); i++ {
@@ -18,14 +18,26 @@ func readVariableHeaders(r reader, h *Header) TelemetryVars {
 		}
 
 		v := Variable{
-			VarType:     helpers.Byte4ToInt(rbuf[0:4]),
-			Offset:      helpers.Byte4ToInt(rbuf[4:8]),
-			Count:       helpers.Byte4ToInt(rbuf[8:12]),
 			CountAsTime: int(rbuf[12]) > 0,
 			Name:        helpers.BytesToString(rbuf[16:48]),
 			Desc:        helpers.BytesToString(rbuf[48:112]),
 			Unit:        helpers.BytesToString(rbuf[112:144]),
 		}
+		varType, err := helpers.Byte4ToInt(rbuf[0:4])
+		if err != nil {
+			log.Fatal(err)
+		}
+		v.VarType = varType.(int32)
+		offSet, err := helpers.Byte4ToInt(rbuf[4:8])
+		if err != nil {
+			log.Fatal(err)
+		}
+		v.Offset = offSet.(int32)
+		count, err := helpers.Byte4ToInt(rbuf[8:12])
+		if err != nil {
+			log.Fatal(err)
+		}
+		v.Count = count.(int32)
 		//log.Printf("%s,%s,%s", v.Name, v.Desc, v.Unit)
 		vars.Vars[v.Name] = v
 	}
@@ -33,32 +45,84 @@ func readVariableHeaders(r reader, h *Header) TelemetryVars {
 }
 
 type varBuffer struct {
-	tickCount int // used to detect changes in data
-	bufOffset int // offset from header
+	tickCount int32 // used to detect changes in data
+	bufOffset int32 // offset from header
 }
 
 func (s SDK) FindLatestBuffer() varBuffer {
 	var vb varBuffer
-	foundTickCount := 0
+	foundTickCount := int32(0)
 	for i := 0; i < int(s.Header.NumBuf); i++ {
 		rbuf := make([]byte, 16)
 		_, err := s.r.ReadAt(rbuf, int64(48+i*16))
 		if err != nil {
 			log.Fatal(err)
 		}
-		currentVb := varBuffer{
-			tickCount: helpers.Byte4ToInt(rbuf[0:4]),
-			bufOffset: helpers.Byte4ToInt(rbuf[4:8]),
+		currentVb := varBuffer{}
+		tickCount, err := helpers.Byte4ToInt(rbuf[0:4])
+		if err != nil {
+			log.Fatal(err)
 		}
-		//fmt.Printf("BUFF?: %+v\n", currentVb)
+		currentVb.tickCount = tickCount.(int32)
+		buffOffset, err := helpers.Byte4ToInt(rbuf[4:8])
+		if err != nil {
+			log.Fatal(err)
+		}
+		currentVb.bufOffset = buffOffset.(int32)
+
 		if foundTickCount < currentVb.tickCount {
 			foundTickCount = currentVb.tickCount
 			vb = currentVb
 		}
 	}
-	//fmt.Printf("BUFF: %+v\n", vb)
 	return vb
 }
+
+
+/*
+switch varHeader.Type {
+	case utils.CharType:
+		irVar := extractCharFromVarHeader(varHeader, data)
+		err := d.AddIrCharVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	case utils.BoolType:
+		irVar := extractBoolFromVarHeader(varHeader, data)
+		err := d.AddIrBoolVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	case utils.IntType:
+		irVar := extractIntFromVarHeader(varHeader, data)
+		err := d.AddIrIntVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	case utils.BitfieldType:
+		irVar := extractBitfieldFromVarHeader(varHeader, data)
+		err := d.AddIrBitfieldVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	case utils.FloatType:
+		irVar := extractFloatFromVarHeader(varHeader, data)
+		err := d.AddIrFloatVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	case utils.DoubleType:
+		irVar := extractDoubleFromVarHeader(varHeader, data)
+		err := d.AddIrDoubleVar(irVar)
+		if err != nil {
+			log.Println(err)
+		}
+	default:
+		log.Println("Unknown irsdk varType:", varHeader.Type)
+	}
+ */
+
+
 
 func (sdk *SDK) ReadVariableValues() bool {
 	newData := false
@@ -89,12 +153,16 @@ func (sdk *SDK) ReadVariableValues() bool {
 					}
 					v.Value = int(rbuf[0]) > 0
 				case 2:
-					rbuf = make([]byte, 4)
+					rbuf = make([]byte, 4*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
-					v.Value = helpers.Byte4ToInt(rbuf)
+
+					v.Value,  err = helpers.Byte4ToInt(rbuf)
+					if err != nil {
+						log.Fatalln(err)
+					}
 				case 3:
 					rbuf = make([]byte, 4)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
@@ -102,21 +170,20 @@ func (sdk *SDK) ReadVariableValues() bool {
 						log.Fatal(err)
 					}
 					v.Value = helpers.Byte4toBitField(rbuf)
-					fmt.Println(v.Value)
 				case 4:
-					rbuf = make([]byte, 4)
+					rbuf = make([]byte, 4*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
-					v.Value = helpers.Byte4ToFloat(rbuf)
+					v.Value, _ = helpers.Byte4ToFloat(rbuf)
 				case 5:
-					rbuf = make([]byte, 8)
+					rbuf = make([]byte, 8*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
-					v.Value = helpers.Byte8ToFloat(rbuf)
+					v.Value, _ = helpers.Byte8ToFloat(rbuf)
 				}
 				v.rawBytes = rbuf
 				sdk.TelemetryVars.Vars[varName] = v

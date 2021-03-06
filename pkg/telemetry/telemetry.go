@@ -157,9 +157,9 @@ type TelemetryData struct {
 
 	// bitfields
 	SessionFlags   string // Todo make map[string]bool
-	CamCameraState string // Todo map[string]bool
-	EngineWarnings string // Todo map[string]bool
-	CarLeftRight   string // Todo map[string]bool
+	CamCameraState string // Todo make map[string]bool
+	EngineWarnings string // Todo make map[string]bool
+	CarLeftRight   string // Todo make map[string]bool
 
 	// Only used in disk based telemetry data
 	PitSvFlags string // Todo make map[string]bool

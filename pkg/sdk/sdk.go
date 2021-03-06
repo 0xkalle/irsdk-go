@@ -28,15 +28,15 @@ type SDK struct {
 }
 
 type TelemetryVars struct {
-	lastVersion int
+	lastVersion int32
 	Vars        map[string]Variable
 	mux         sync.Mutex
 }
 
 type Variable struct {
-	VarType     int // irsdk_VarType
-	Offset      int // Offset fron start of buffer row
-	Count       int // number of entrys (array) so length in bytes would be irsdk_VarTypeBytes[type] * Count
+	VarType     int32 // irsdk_VarType
+	Offset      int32 // Offset fron start of buffer row
+	Count       int32 // number of entrys (array) so length in bytes would be irsdk_VarTypeBytes[type] * Count
 	CountAsTime bool
 	Name        string
 	Desc        string

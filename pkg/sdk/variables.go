@@ -7,6 +7,7 @@ import (
 
 	"github.com/phumberdroz/irsdk-go/pkg/helpers"
 )
+
 // Todo make this return error
 func readVariableHeaders(r reader, h *Header) TelemetryVars {
 	vars := TelemetryVars{Vars: make(map[string]Variable, h.NumVars)}
@@ -78,7 +79,6 @@ func (s SDK) FindLatestBuffer() varBuffer {
 	return vb
 }
 
-
 /*
 switch varHeader.Type {
 	case utils.CharType:
@@ -120,15 +120,15 @@ switch varHeader.Type {
 	default:
 		log.Println("Unknown irsdk varType:", varHeader.Type)
 	}
- */
+*/
 
 const (
-	CharType int32 = iota
-	BoolType int32 = iota
+	CharType     int32 = iota
+	BoolType     int32 = iota
 	IntType      int32 = iota
 	BitfieldType int32 = iota
 	FloatType    int32 = iota
-	DoubleType int32 = iota
+	DoubleType   int32 = iota
 )
 
 func (sdk *SDK) ReadVariableValues() bool {
@@ -159,7 +159,7 @@ func (sdk *SDK) ReadVariableValues() bool {
 					if err != nil {
 						log.Fatal(err)
 					}
-					v.Value,  err = helpers.ByteToBool(rbuf)
+					v.Value, err = helpers.ByteToBool(rbuf)
 					if err != nil {
 						log.Fatalln(err)
 					}
@@ -170,7 +170,7 @@ func (sdk *SDK) ReadVariableValues() bool {
 						log.Fatal(err)
 					}
 
-					v.Value,  err = helpers.Byte4ToInt(rbuf)
+					v.Value, err = helpers.Byte4ToInt(rbuf)
 					if err != nil {
 						log.Fatalln(err)
 					}

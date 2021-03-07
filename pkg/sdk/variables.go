@@ -122,7 +122,14 @@ switch varHeader.Type {
 	}
  */
 
-
+const (
+	CharType int32 = iota
+	BoolType int32 = iota
+	IntType      int32 = iota
+	BitfieldType int32 = iota
+	FloatType    int32 = iota
+	DoubleType int32 = iota
+)
 
 func (sdk *SDK) ReadVariableValues() bool {
 	newData := false
@@ -135,24 +142,28 @@ func (sdk *SDK) ReadVariableValues() bool {
 			newData = true
 			sdk.TelemetryVars.lastVersion = vb.tickCount
 			sdk.lastValidData = time.Now().Unix()
+
 			for varName, v := range sdk.TelemetryVars.Vars {
 				var rbuf []byte
 				switch v.VarType {
-				case 0:
+				case CharType:
 					rbuf = make([]byte, 1)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
 					v.Value = string(rbuf[0])
-				case 1:
-					rbuf = make([]byte, 1)
+				case BoolType:
+					rbuf = make([]byte, 1*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
-					v.Value = int(rbuf[0]) > 0
-				case 2:
+					v.Value,  err = helpers.ByteToBool(rbuf)
+					if err != nil {
+						log.Fatalln(err)
+					}
+				case IntType:
 					rbuf = make([]byte, 4*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
@@ -163,21 +174,21 @@ func (sdk *SDK) ReadVariableValues() bool {
 					if err != nil {
 						log.Fatalln(err)
 					}
-				case 3:
+				case BitfieldType:
 					rbuf = make([]byte, 4)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
 					v.Value = helpers.Byte4toBitField(rbuf)
-				case 4:
+				case FloatType:
 					rbuf = make([]byte, 4*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {
 						log.Fatal(err)
 					}
 					v.Value, _ = helpers.Byte4ToFloat(rbuf)
-				case 5:
+				case DoubleType:
 					rbuf = make([]byte, 8*v.Count)
 					_, err := sdk.r.ReadAt(rbuf, int64(vb.bufOffset+v.Offset))
 					if err != nil {

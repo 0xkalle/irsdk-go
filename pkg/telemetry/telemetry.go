@@ -2,19 +2,19 @@ package telemetry
 
 type TelemetryData struct {
 	// NEW
-	CarIdxBestLapNum             int
-	CarIdxBestLapTime            float32
-	CarIdxLapCompleted           int
-	CarIdxLastLapTime            float32
-	CarIdxP2P_Count              int
-	CarIdxP2P_Status             bool
-	CarIdxPaceFlags              int
-	CarIdxPaceLine               int
-	CarIdxPaceRow                int
-	CarIdxQualTireCompound       int
-	CarIdxQualTireCompoundLocked bool
-	CarIdxTireCompound           int
-	CarIdxTrackSurfaceMaterial   int
+	CarIdxBestLapNum             []int32
+	CarIdxBestLapTime            []float32
+	CarIdxLapCompleted           []int32
+	CarIdxLastLapTime            []float32
+	CarIdxP2P_Count              []int32
+	CarIdxP2P_Status             []bool
+	CarIdxPaceFlags              []int32
+	CarIdxPaceLine               []int32
+	CarIdxPaceRow                []int32
+	CarIdxQualTireCompound       []int32
+	CarIdxQualTireCompoundLocked []bool
+	CarIdxTireCompound           []int
+	CarIdxTrackSurfaceMaterial   []int
 	DcStarter                    bool
 	DpFastRepair                 float32
 	DpFuelAddKg                  float32
@@ -36,24 +36,24 @@ type TelemetryData struct {
 	HandbrakeRaw                 float32
 	LFTiresAvailable             int
 	LFTiresUsed                  int
-	LFshockDefl_ST               float32
-	LFshockVel_ST                float32
+	LFshockDefl_ST               []float32
+	LFshockVel_ST                []float32
 	LRTiresAvailable             int
 	LRTiresUsed                  int
-	LRshockDefl_ST               float32
-	LRshockVel_ST                float32
+	LRshockDefl_ST               []float32
+	LRshockVel_ST                []float32
 	LapCompleted                 int
-	LatAccel_ST                  float32
+	LatAccel_ST                  []float32
 	LeftTireSetsAvailable        int
 	LeftTireSetsUsed             int
 	LoadNumTextures              bool
-	LongAccel_ST                 float32
+	LongAccel_ST                 []float32
 	ManualBoost                  bool
 	ManualNoBoost                bool
 	OkToReloadTextures           bool
 	PaceMode                     int
 	PitSvTireCompound            int
-	PitchRate_ST                 float32
+	PitchRate_ST                 []float32
 	PitsOpen                     bool
 	PitstopActive                bool
 	PlayerCarDriverIncidentCount int
@@ -72,20 +72,20 @@ type TelemetryData struct {
 	PushToPass                   bool
 	RFTiresAvailable             int
 	RFTiresUsed                  int
-	RFshockDefl_ST               float32
-	RFshockVel_ST                float32
+	RFshockDefl_ST               []float32
+	RFshockVel_ST                []float32
 	RRTiresAvailable             int
 	RRTiresUsed                  int
-	RRshockDefl_ST               float32
-	RRshockVel_ST                float32
+	RRshockDefl_ST               []float32
+	RRshockVel_ST                []float32
 	RearTireSetsAvailable        int
 	RearTireSetsUsed             int
 	RightTireSetsAvailable       int
 	RightTireSetsUsed            int
-	RollRate_ST                  float32
+	RollRate_ST                  []float32
 	SessionLapsRemainEx          int
 	SessionTimeOfDay             float32
-	SteeringWheelTorque_ST       float32
+	SteeringWheelTorque_ST       []float32
 	TireLF_RumblePitch           float32
 	TireLR_RumblePitch           float32
 	TireRF_RumblePitch           float32
@@ -93,10 +93,10 @@ type TelemetryData struct {
 	TireSetsAvailable            int
 	TireSetsUsed                 int
 	TrackTempCrew                float32
-	VelocityX_ST                 float32
-	VelocityY_ST                 float32
-	VelocityZ_ST                 float32
-	VertAccel_ST                 float32
+	VelocityX_ST                 []float32
+	VelocityY_ST                 []float32
+	VelocityZ_ST                 []float32
+	VertAccel_ST                 []float32
 	YawNorth                     float32
 	YawRate_ST                   float32
 
@@ -106,7 +106,7 @@ type TelemetryData struct {
 	IsReplayPlaying                bool
 	IsDiskLoggingEnabled           bool
 	IsDiskLoggingActive            bool
-	CarIdxOnPitRoad                bool
+	CarIdxOnPitRoad                []bool
 	OnPitRoad                      bool
 	LapDeltaToBestLap_OK           bool
 	LapDeltaToOptimalLap_OK        bool
@@ -127,9 +127,9 @@ type TelemetryData struct {
 	RadioTransmitFrequencyIdx int
 	ReplayFrameNum            int
 	ReplayFrameNumEnd         int
-	CarIdxLap                 int
-	CarIdxTrackSurface        int
-	CarIdxGear                int
+	CarIdxLap                 []int
+	CarIdxTrackSurface        []int
+	CarIdxGear                []int
 	Gear                      int
 	Lap                       int
 	RaceLaps                  int
@@ -142,8 +142,8 @@ type TelemetryData struct {
 	DisplayUnits              int
 	PlayerCarPosition         int
 	PlayerCarClassPosition    int
-	CarIdxPosition            int
-	CarIdxClassPosition       int
+	CarIdxPosition            []int
+	CarIdxClassPosition       []int
 	LapLasNLapSeq             int
 	LapBestNLapLap            int
 	EnterExitReset            int
@@ -167,9 +167,9 @@ type TelemetryData struct {
 	// floats
 	FrameRate                       float32
 	CpuUsageBG                      float32
-	CarIdxLapDistPct                float32
-	CarIdxSteer                     float32
-	CarIdxRPM                       float32
+	CarIdxLapDistPct                []float32
+	CarIdxSteer                     []float32
+	CarIdxRPM                       []float32
 	SteeringWheelAngle              float32
 	Throttle                        float32
 	Brake                           float32
@@ -267,8 +267,8 @@ type TelemetryData struct {
 	RFshockVel                      float32
 	LFshockDefl                     float32
 	LFshockVel                      float32
-	CarIdxF2Time                    float32
-	CarIdxEstTime                   float32
+	CarIdxF2Time                    []float32
+	CarIdxEstTime                   []float32
 	LapLastNLapTime                 float32
 	BrakeLinePresse                 float32
 	DcBrakeBias                     float32

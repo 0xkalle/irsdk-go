@@ -62,6 +62,26 @@ func Byte8ToFloat(in []byte) (interface{}, error) {
 		return i, nil
 	}
 }
+
+func ByteToBool(in []byte) (interface{}, error) {
+	r := bytes.NewReader(in)
+	if len(in) == 1 {
+		i := true
+		err := binary.Read(r, binary.LittleEndian, &i)
+		if err != nil {
+			return nil, err
+		}
+		return i, nil
+	} else {
+		i := make([]bool, len(in))
+		err := binary.Read(r, binary.LittleEndian, &i)
+		if err != nil {
+			return nil, err
+		}
+		return i, nil
+	}
+}
+
 func Byte4toBitField(in []byte) string {
 	return fmt.Sprintf("0x%x", int(binary.LittleEndian.Uint32(in)))
 }

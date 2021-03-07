@@ -24,10 +24,12 @@ func TestInit(t *testing.T) {
 	err = yaml.Unmarshal(data, &sessionData)
 	require.NoError(t, err)
 	assert.Equal(t, "Bathurst", sessionData.WeekendInfo.TrackCity)
-	//for i := 0; i < 31015; i++ {
-	//	init.ReadVariableValues()
-	//	getVar, err := init.GetVar("RPM")
-	//	require.NoError(t, err)
-	//	fmt.Println(getVar.Value)
+	//fmt.Println("name,description,unit")
+	//for _, v := range init.TelemetryVars.Vars {
+	//	fmt.Printf("%s,%s,%s\n", v.Name, v.Desc, v.Unit)
 	//}
+	var tData telemetry.TelemetryData
+	err = init.Unmarshal(&tData)
+	assert.NoError(t, err)
+	assert.Equal(t, "", tData.CarIdxRPM)
 }

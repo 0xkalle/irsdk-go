@@ -98,7 +98,7 @@ type TelemetryData struct {
 	VelocityZ_ST                 []float32
 	VertAccel_ST                 []float32
 	YawNorth                     float32
-	YawRate_ST                   float32
+	YawRate_ST                   []float32
 
 	// bools
 	DriverMarker                   bool

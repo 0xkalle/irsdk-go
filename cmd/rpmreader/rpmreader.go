@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/phumberdroz/irsdk-go/pkg/sdk"
 	"github.com/phumberdroz/irsdk-go/pkg/session"
+	"github.com/phumberdroz/irsdk-go/pkg/telemetry"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
 	"time"
@@ -32,13 +33,14 @@ func main() {
 		t1 := time.Now()
 		values := sdk.ReadVariableValues()
 		if values {
-			getVar, err := sdk.GetVar("RPM")
+			var tData telemetry.TelemetryData
+			err := sdk.Unmarshal(&tData)
 			if err != nil {
-				logrus.WithError(err).Error("failed to get rpm")
-				continue
+				logrus.Error(err)
 			}
-			logrus.Info("rpm is ", getVar.Value)
-			logrus.Infof("Loop took %d", time.Now().Sub(t1).Nanoseconds())
+			logrus.Infof("RPM: %f", tData.RPM)
+
+			logrus.Infof("tick took %s", time.Since(t1))
 		}
 		time.Sleep(tickSleepTime)
 	}

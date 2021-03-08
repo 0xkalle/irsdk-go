@@ -79,49 +79,6 @@ func (s SDK) FindLatestBuffer() varBuffer {
 	return vb
 }
 
-/*
-switch varHeader.Type {
-	case utils.CharType:
-		irVar := extractCharFromVarHeader(varHeader, data)
-		err := d.AddIrCharVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	case utils.BoolType:
-		irVar := extractBoolFromVarHeader(varHeader, data)
-		err := d.AddIrBoolVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	case utils.IntType:
-		irVar := extractIntFromVarHeader(varHeader, data)
-		err := d.AddIrIntVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	case utils.BitfieldType:
-		irVar := extractBitfieldFromVarHeader(varHeader, data)
-		err := d.AddIrBitfieldVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	case utils.FloatType:
-		irVar := extractFloatFromVarHeader(varHeader, data)
-		err := d.AddIrFloatVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	case utils.DoubleType:
-		irVar := extractDoubleFromVarHeader(varHeader, data)
-		err := d.AddIrDoubleVar(irVar)
-		if err != nil {
-			log.Println(err)
-		}
-	default:
-		log.Println("Unknown irsdk varType:", varHeader.Type)
-	}
-*/
-
 const (
 	CharType     int32 = iota
 	BoolType     int32 = iota

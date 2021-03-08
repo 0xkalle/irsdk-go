@@ -1,6 +1,9 @@
 package sdk
 
-import "encoding/binary"
+import (
+	"bytes"
+	"encoding/binary"
+)
 
 // Header please keep in mind that order is important
 type Header struct {
@@ -29,7 +32,7 @@ func readHeader(r reader) (Header, error) {
 		return Header{}, err
 	}
 
-	err = binary.Read(r, binary.LittleEndian, &h)
+	err = binary.Read(bytes.NewReader(rbuf), binary.LittleEndian, &h)
 	if err != nil {
 		return Header{}, err
 	}

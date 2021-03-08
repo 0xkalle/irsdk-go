@@ -46,12 +46,12 @@ type TelemetryOptions struct {
 	TelemetryDiskFile string `yaml:"TelemetryDiskFile"`
 }
 type WeekendInfo struct {
-	TrackName             string `yaml:"TrackName"`
-	TrackID               int    `yaml:"TrackID"`
-	TrackLength           string `yaml:"TrackLength"`
-	TrackDisplayName      string `yaml:"TrackDisplayName"`
-	TrackDisplayShortName string `yaml:"TrackDisplayShortName"`
-	//TrackConfigName        interface{}      `yaml:"TrackConfigName"`
+	TrackName              string           `yaml:"TrackName"`
+	TrackID                int              `yaml:"TrackID"`
+	TrackLength            string           `yaml:"TrackLength"`
+	TrackDisplayName       string           `yaml:"TrackDisplayName"`
+	TrackDisplayShortName  string           `yaml:"TrackDisplayShortName"`
+	TrackConfigName        interface{}      `yaml:"TrackConfigName"`
 	TrackCity              string           `yaml:"TrackCity"`
 	TrackCountry           string           `yaml:"TrackCountry"`
 	TrackAltitude          string           `yaml:"TrackAltitude"`
@@ -121,24 +121,24 @@ type ResultsFastestLap struct {
 	FastestTime float64 `yaml:"FastestTime"`
 }
 type Sessions struct {
-	SessionNum              int    `yaml:"SessionNum"`
-	SessionLaps             string `yaml:"SessionLaps"`
-	SessionTime             string `yaml:"SessionTime"`
-	SessionNumLapsToAvg     int    `yaml:"SessionNumLapsToAvg"`
-	SessionType             string `yaml:"SessionType"`
-	SessionTrackRubberState string `yaml:"SessionTrackRubberState"`
-	SessionName             string `yaml:"SessionName"`
-	//SessionSubType          interface{}         `yaml:"SessionSubType"`
-	SessionSkipped         int                 `yaml:"SessionSkipped"`
-	SessionRunGroupsUsed   int                 `yaml:"SessionRunGroupsUsed"`
-	ResultsPositions       []ResultsPositions  `yaml:"ResultsPositions"`
-	ResultsFastestLap      []ResultsFastestLap `yaml:"ResultsFastestLap"`
-	ResultsAverageLapTime  int                 `yaml:"ResultsAverageLapTime"`
-	ResultsNumCautionFlags int                 `yaml:"ResultsNumCautionFlags"`
-	ResultsNumCautionLaps  int                 `yaml:"ResultsNumCautionLaps"`
-	ResultsNumLeadChanges  int                 `yaml:"ResultsNumLeadChanges"`
-	ResultsLapsComplete    int                 `yaml:"ResultsLapsComplete"`
-	ResultsOfficial        int                 `yaml:"ResultsOfficial"`
+	SessionNum              int                 `yaml:"SessionNum"`
+	SessionLaps             string              `yaml:"SessionLaps"`
+	SessionTime             string              `yaml:"SessionTime"`
+	SessionNumLapsToAvg     int                 `yaml:"SessionNumLapsToAvg"`
+	SessionType             string              `yaml:"SessionType"`
+	SessionTrackRubberState string              `yaml:"SessionTrackRubberState"`
+	SessionName             string              `yaml:"SessionName"`
+	SessionSubType          interface{}         `yaml:"SessionSubType"`
+	SessionSkipped          int                 `yaml:"SessionSkipped"`
+	SessionRunGroupsUsed    int                 `yaml:"SessionRunGroupsUsed"`
+	ResultsPositions        []ResultsPositions  `yaml:"ResultsPositions"`
+	ResultsFastestLap       []ResultsFastestLap `yaml:"ResultsFastestLap"`
+	ResultsAverageLapTime   int                 `yaml:"ResultsAverageLapTime"`
+	ResultsNumCautionFlags  int                 `yaml:"ResultsNumCautionFlags"`
+	ResultsNumCautionLaps   int                 `yaml:"ResultsNumCautionLaps"`
+	ResultsNumLeadChanges   int                 `yaml:"ResultsNumLeadChanges"`
+	ResultsLapsComplete     int                 `yaml:"ResultsLapsComplete"`
+	ResultsOfficial         int                 `yaml:"ResultsOfficial"`
 }
 type SessionInfo struct {
 	Sessions []Sessions `yaml:"Sessions"`
@@ -182,23 +182,23 @@ type RadioInfo struct {
 	Radios           []Radios `yaml:"Radios"`
 }
 type Drivers struct {
-	CarIdx   int    `yaml:"CarIdx"`
-	UserName string `yaml:"UserName"`
-	//AbbrevName              interface{} `yaml:"AbbrevName"`
-	//Initials                interface{} `yaml:"Initials"`
-	UserID             int    `yaml:"UserID"`
-	TeamID             int    `yaml:"TeamID"`
-	TeamName           string `yaml:"TeamName"`
-	CarNumber          string `yaml:"CarNumber"`
-	CarNumberRaw       int    `yaml:"CarNumberRaw"`
-	CarPath            string `yaml:"CarPath"`
-	CarClassID         int    `yaml:"CarClassID"`
-	CarID              int    `yaml:"CarID"`
-	CarIsPaceCar       int    `yaml:"CarIsPaceCar"`
-	CarIsAI            int    `yaml:"CarIsAI"`
-	CarScreenName      string `yaml:"CarScreenName"`
-	CarScreenNameShort string `yaml:"CarScreenNameShort"`
-	//CarClassShortName       interface{} `yaml:"CarClassShortName"`
+	CarIdx                  int         `yaml:"CarIdx"`
+	UserName                string      `yaml:"UserName"`
+	AbbrevName              string      `yaml:"AbbrevName"`
+	Initials                string      `yaml:"Initials"`
+	UserID                  int         `yaml:"UserID"`
+	TeamID                  int         `yaml:"TeamID"`
+	TeamName                string      `yaml:"TeamName"`
+	CarNumber               string      `yaml:"CarNumber"`
+	CarNumberRaw            int         `yaml:"CarNumberRaw"`
+	CarPath                 string      `yaml:"CarPath"`
+	CarClassID              int         `yaml:"CarClassID"`
+	CarID                   int         `yaml:"CarID"`
+	CarIsPaceCar            int         `yaml:"CarIsPaceCar"`
+	CarIsAI                 int         `yaml:"CarIsAI"`
+	CarScreenName           string      `yaml:"CarScreenName"`
+	CarScreenNameShort      string      `yaml:"CarScreenNameShort"`
+	CarClassShortName       string      `yaml:"CarClassShortName"`
 	CarClassRelSpeed        int         `yaml:"CarClassRelSpeed"`
 	CarClassLicenseLevel    int         `yaml:"CarClassLicenseLevel"`
 	CarClassMaxFuelPct      string      `yaml:"CarClassMaxFuelPct"`
@@ -210,7 +210,7 @@ type Drivers struct {
 	LicLevel                int         `yaml:"LicLevel"`
 	LicSubLevel             int         `yaml:"LicSubLevel"`
 	LicString               string      `yaml:"LicString"`
-	LicColor                interface{} `yaml:"LicColor"` // Todo investigate returned: 0xundefined
+	LicColor                string `yaml:"LicColor"` // Todo investigate returned: 0xundefined
 	IsSpectator             int         `yaml:"IsSpectator"`
 	CarDesignStr            string      `yaml:"CarDesignStr"`
 	HelmetDesignStr         string      `yaml:"HelmetDesignStr"`

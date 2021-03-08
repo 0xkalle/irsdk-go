@@ -86,6 +86,13 @@ func InitSdk(r reader) (SDK, error) {
 	return sdk, nil
 }
 
+func (s SDK) ReadHeader() (Header, error) {
+	if s.r == nil {
+		return Header{}, fmt.Errorf("reader not initialized")
+	}
+	return readHeader(s.r)
+}
+
 func (s SDK) GetSessionData() ([]byte, error) {
 	if !s.SessionStatusOK() {
 		return nil, fmt.Errorf("session Status not ok")

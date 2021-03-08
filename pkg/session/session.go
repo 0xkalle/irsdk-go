@@ -182,46 +182,46 @@ type RadioInfo struct {
 	Radios           []Radios `yaml:"Radios"`
 }
 type Drivers struct {
-	CarIdx                  int         `yaml:"CarIdx"`
-	UserName                string      `yaml:"UserName"`
-	AbbrevName              string      `yaml:"AbbrevName"`
-	Initials                string      `yaml:"Initials"`
-	UserID                  int         `yaml:"UserID"`
-	TeamID                  int         `yaml:"TeamID"`
-	TeamName                string      `yaml:"TeamName"`
-	CarNumber               string      `yaml:"CarNumber"`
-	CarNumberRaw            int         `yaml:"CarNumberRaw"`
-	CarPath                 string      `yaml:"CarPath"`
-	CarClassID              int         `yaml:"CarClassID"`
-	CarID                   int         `yaml:"CarID"`
-	CarIsPaceCar            int         `yaml:"CarIsPaceCar"`
-	CarIsAI                 int         `yaml:"CarIsAI"`
-	CarScreenName           string      `yaml:"CarScreenName"`
-	CarScreenNameShort      string      `yaml:"CarScreenNameShort"`
-	CarClassShortName       string      `yaml:"CarClassShortName"`
-	CarClassRelSpeed        int         `yaml:"CarClassRelSpeed"`
-	CarClassLicenseLevel    int         `yaml:"CarClassLicenseLevel"`
-	CarClassMaxFuelPct      string      `yaml:"CarClassMaxFuelPct"`
-	CarClassWeightPenalty   string      `yaml:"CarClassWeightPenalty"`
-	CarClassPowerAdjust     string      `yaml:"CarClassPowerAdjust"`
-	CarClassDryTireSetLimit string      `yaml:"CarClassDryTireSetLimit"`
-	CarClassColor           int         `yaml:"CarClassColor"`
-	IRating                 int         `yaml:"IRating"`
-	LicLevel                int         `yaml:"LicLevel"`
-	LicSubLevel             int         `yaml:"LicSubLevel"`
-	LicString               string      `yaml:"LicString"`
+	CarIdx                  int    `yaml:"CarIdx"`
+	UserName                string `yaml:"UserName"`
+	AbbrevName              string `yaml:"AbbrevName"`
+	Initials                string `yaml:"Initials"`
+	UserID                  int    `yaml:"UserID"`
+	TeamID                  int    `yaml:"TeamID"`
+	TeamName                string `yaml:"TeamName"`
+	CarNumber               string `yaml:"CarNumber"`
+	CarNumberRaw            int    `yaml:"CarNumberRaw"`
+	CarPath                 string `yaml:"CarPath"`
+	CarClassID              int    `yaml:"CarClassID"`
+	CarID                   int    `yaml:"CarID"`
+	CarIsPaceCar            int    `yaml:"CarIsPaceCar"`
+	CarIsAI                 int    `yaml:"CarIsAI"`
+	CarScreenName           string `yaml:"CarScreenName"`
+	CarScreenNameShort      string `yaml:"CarScreenNameShort"`
+	CarClassShortName       string `yaml:"CarClassShortName"`
+	CarClassRelSpeed        int    `yaml:"CarClassRelSpeed"`
+	CarClassLicenseLevel    int    `yaml:"CarClassLicenseLevel"`
+	CarClassMaxFuelPct      string `yaml:"CarClassMaxFuelPct"`
+	CarClassWeightPenalty   string `yaml:"CarClassWeightPenalty"`
+	CarClassPowerAdjust     string `yaml:"CarClassPowerAdjust"`
+	CarClassDryTireSetLimit string `yaml:"CarClassDryTireSetLimit"`
+	CarClassColor           int    `yaml:"CarClassColor"`
+	IRating                 int    `yaml:"IRating"`
+	LicLevel                int    `yaml:"LicLevel"`
+	LicSubLevel             int    `yaml:"LicSubLevel"`
+	LicString               string `yaml:"LicString"`
 	LicColor                string `yaml:"LicColor"` // Todo investigate returned: 0xundefined
-	IsSpectator             int         `yaml:"IsSpectator"`
-	CarDesignStr            string      `yaml:"CarDesignStr"`
-	HelmetDesignStr         string      `yaml:"HelmetDesignStr"`
-	SuitDesignStr           string      `yaml:"SuitDesignStr"`
-	CarNumberDesignStr      string      `yaml:"CarNumberDesignStr"`
-	CarSponsor1             int         `yaml:"CarSponsor_1"`
-	CarSponsor2             int         `yaml:"CarSponsor_2"`
-	ClubName                string      `yaml:"ClubName"`
-	DivisionName            string      `yaml:"DivisionName"`
-	CurDriverIncidentCount  int         `yaml:"CurDriverIncidentCount"`
-	TeamIncidentCount       int         `yaml:"TeamIncidentCount"`
+	IsSpectator             int    `yaml:"IsSpectator"`
+	CarDesignStr            string `yaml:"CarDesignStr"`
+	HelmetDesignStr         string `yaml:"HelmetDesignStr"`
+	SuitDesignStr           string `yaml:"SuitDesignStr"`
+	CarNumberDesignStr      string `yaml:"CarNumberDesignStr"`
+	CarSponsor1             int    `yaml:"CarSponsor_1"`
+	CarSponsor2             int    `yaml:"CarSponsor_2"`
+	ClubName                string `yaml:"ClubName"`
+	DivisionName            string `yaml:"DivisionName"`
+	CurDriverIncidentCount  int    `yaml:"CurDriverIncidentCount"`
+	TeamIncidentCount       int    `yaml:"TeamIncidentCount"`
 }
 type DriverInfo struct {
 	DriverCarIdx              int       `yaml:"DriverCarIdx"`
@@ -371,8 +371,83 @@ type Chassis struct {
 	RightRear  RightRear  `yaml:"RightRear"`
 	Rear       Rear       `yaml:"Rear"`
 }
+
+type SuspensionFront struct {
+	ToeIn       string `yaml:"ToeIn"`
+	CrossWeight string `yaml:"CrossWeight"`
+	AntiRollBar string `yaml:"AntiRollBar"`
+}
+
+type SuspensionLeftFront struct {
+	ColdPressure      string `yaml:"ColdPressure"`
+	LastHotPressure   string `yaml:"LastHotPressure"`
+	LastTempsOMI      string `yaml:"LastTempsOMI"`
+	TreadRemaining    string `yaml:"TreadRemaining"`
+	CornerWeight      string `yaml:"CornerWeight"`
+	RideHeight        string `yaml:"RideHeight"`
+	SpringPerchOffset string `yaml:"SpringPerchOffset"`
+	BumpStiffness     string `yaml:"BumpStiffness"`
+	ReboundStiffness  string `yaml:"ReboundStiffness"`
+	Camber            string `yaml:"Camber"`
+}
+
+type SuspensionLeftRear struct {
+	ColdPressure      string `yaml:"ColdPressure"`
+	LastHotPressure   string `yaml:"LastHotPressure"`
+	LastTempsOMI      string `yaml:"LastTempsOMI"`
+	TreadRemaining    string `yaml:"TreadRemaining"`
+	CornerWeight      string `yaml:"CornerWeight"`
+	RideHeight        string `yaml:"RideHeight"`
+	SpringPerchOffset string `yaml:"SpringPerchOffset"`
+	BumpStiffness     string `yaml:"BumpStiffness"`
+	ReboundStiffness  string `yaml:"ReboundStiffness"`
+	Camber            string `yaml:"Camber"`
+}
+
+type SuspensionRightFront struct {
+	ColdPressure      string `yaml:"ColdPressure"`
+	LastHotPressure   string `yaml:"LastHotPressure"`
+	LastTempsIMO      string `yaml:"LastTempsIMO"`
+	TreadRemaining    string `yaml:"TreadRemaining"`
+	CornerWeight      string `yaml:"CornerWeight"`
+	RideHeight        string `yaml:"RideHeight"`
+	SpringPerchOffset string `yaml:"SpringPerchOffset"`
+	BumpStiffness     string `yaml:"BumpStiffness"`
+	ReboundStiffness  string `yaml:"ReboundStiffness"`
+	Camber            string `yaml:"Camber"`
+}
+
+type SuspensionRightRear struct {
+	ColdPressure      string `yaml:"ColdPressure"`
+	LastHotPressure   string `yaml:"LastHotPressure"`
+	LastTempsIMO      string `yaml:"LastTempsIMO"`
+	TreadRemaining    string `yaml:"TreadRemaining"`
+	CornerWeight      string `yaml:"CornerWeight"`
+	RideHeight        string `yaml:"RideHeight"`
+	SpringPerchOffset string `yaml:"SpringPerchOffset"`
+	BumpStiffness     string `yaml:"BumpStiffness"`
+	ReboundStiffness  string `yaml:"ReboundStiffness"`
+	Camber            string `yaml:"Camber"`
+}
+
+type SuspensionRear struct {
+	FuelLevel   string `yaml:"FuelLevel"`
+	ToeIn       string `yaml:"ToeIn"`
+	AntiRollBar string `yaml:"AntiRollBar"`
+}
+
+type Suspension struct {
+	Front      SuspensionFront      `yaml:"Front"`
+	LeftFront  SuspensionLeftFront  `yaml:"LeftFront"`
+	LeftRear   SuspensionLeftRear   `yaml:"LeftRear"`
+	RightFront SuspensionRightFront `yaml:"RightFront"`
+	RightRear  SuspensionRightRear  `yaml:"RightRear"`
+	Rear       SuspensionRear       `yaml:"Rear"`
+}
+
 type CarSetup struct {
-	UpdateCount int       `yaml:"UpdateCount"`
-	TiresAero   TiresAero `yaml:"TiresAero"`
-	Chassis     Chassis   `yaml:"Chassis"`
+	UpdateCount int        `yaml:"UpdateCount"`
+	TiresAero   TiresAero  `yaml:"TiresAero"`
+	Chassis     Chassis    `yaml:"Chassis"`
+	Suspension  Suspension `yaml:"Suspension"`
 }

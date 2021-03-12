@@ -10,6 +10,19 @@ type SessionData struct {
 	DriverInfo    DriverInfo    `yaml:"DriverInfo"`
 	SplitTimeInfo SplitTimeInfo `yaml:"SplitTimeInfo"`
 	CarSetup      CarSetup      `yaml:"CarSetup"`
+	QualifyResultsInfo QualifyResultsInfo `yaml:"QualifyResultsInfo"`
+}
+
+type Results struct {
+	Position      int `yaml:"Position"`
+	ClassPosition int `yaml:"ClassPosition"`
+	CarIdx        int `yaml:"CarIdx"`
+	FastestLap    int `yaml:"FastestLap"`
+	FastestTime   int `yaml:"FastestTime"`
+}
+
+type QualifyResultsInfo struct {
+	Results []Results `yaml:"Results"`
 }
 
 type WeekendOptions struct {

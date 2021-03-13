@@ -3,13 +3,13 @@ package session
 import "time"
 
 type SessionData struct {
-	WeekendInfo   WeekendInfo   `yaml:"WeekendInfo"`
-	SessionInfo   SessionInfo   `yaml:"SessionInfo"`
-	CameraInfo    CameraInfo    `yaml:"CameraInfo"`
-	RadioInfo     RadioInfo     `yaml:"RadioInfo"`
-	DriverInfo    DriverInfo    `yaml:"DriverInfo"`
-	SplitTimeInfo SplitTimeInfo `yaml:"SplitTimeInfo"`
-	CarSetup      CarSetup      `yaml:"CarSetup"`
+	WeekendInfo        WeekendInfo        `yaml:"WeekendInfo"`
+	SessionInfo        SessionInfo        `yaml:"SessionInfo"`
+	CameraInfo         CameraInfo         `yaml:"CameraInfo"`
+	RadioInfo          RadioInfo          `yaml:"RadioInfo"`
+	DriverInfo         DriverInfo         `yaml:"DriverInfo"`
+	SplitTimeInfo      SplitTimeInfo      `yaml:"SplitTimeInfo"`
+	CarSetup           CarSetup           `yaml:"CarSetup"`
 	QualifyResultsInfo QualifyResultsInfo `yaml:"QualifyResultsInfo"`
 }
 

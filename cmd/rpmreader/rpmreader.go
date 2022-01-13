@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/phumberdroz/irsdk-go/pkg/sdk"
-	"github.com/phumberdroz/irsdk-go/pkg/session"
-	"github.com/phumberdroz/irsdk-go/pkg/telemetry"
+	"github.com/0xkalle/irsdk-go/pkg/sdk"
+	"github.com/0xkalle/irsdk-go/pkg/session"
+	"github.com/0xkalle/irsdk-go/pkg/telemetry"
 	"github.com/sirupsen/logrus"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 	"time"
 )
 
@@ -27,10 +27,10 @@ func main() {
 		logrus.WithError(err).Error("failed to unmarshal sessiondata")
 		return
 	}
-	logrus.Info(sessionData.WeekendInfo.TrackCity)
+	logrus.Info(sessionData.WeekendInfo.TrackName)
 	tickSleepTime := time.Second / time.Duration(int(sdk.Header.TickRate))
+	t1 := time.Now()
 	for {
-		t1 := time.Now()
 		values := sdk.ReadVariableValues()
 		if values {
 			var tData telemetry.TelemetryData
@@ -38,9 +38,12 @@ func main() {
 			if err != nil {
 				logrus.Error(err)
 			}
-			logrus.Infof("RPM: %f", tData.RPM)
+			logrus.Infof("G: %t", tData.IsInGarage)
+			logrus.Infof("T: %t", tData.IsOnTrack)
+			logrus.Infof("TC: %t", tData.IsOnTrackCar)
 
 			logrus.Infof("tick took %s", time.Since(t1))
+			t1 = time.Now()
 		}
 		time.Sleep(tickSleepTime)
 	}

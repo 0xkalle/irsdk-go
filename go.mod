@@ -1,4 +1,4 @@
-module github.com/phumberdroz/irsdk-go
+module github.com/0xkalle/irsdk-go
 
 go 1.16
 

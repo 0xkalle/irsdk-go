@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"bitbucket.org/avd/go-ipc/mmf"
-	"github.com/phumberdroz/irsdk-go/internal/shm"
-	"github.com/phumberdroz/irsdk-go/pkg/session"
+	"github.com/0xkalle/irsdk-go/internal/shm"
+	"github.com/0xkalle/irsdk-go/pkg/session"
 	"golang.org/x/text/encoding/charmap"
 )
 

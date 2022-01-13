@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/phumberdroz/irsdk-go/pkg/helpers"
+	"github.com/0xkalle/irsdk-go/pkg/helpers"
 )
 
 // Todo make this return error

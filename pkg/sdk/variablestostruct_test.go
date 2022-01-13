@@ -3,8 +3,8 @@ package sdk_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/phumberdroz/irsdk-go/pkg/sdk"
-	"github.com/phumberdroz/irsdk-go/pkg/telemetry"
+	"github.com/0xkalle/irsdk-go/pkg/sdk"
+	"github.com/0xkalle/irsdk-go/pkg/telemetry"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"os"

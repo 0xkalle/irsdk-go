@@ -4,9 +4,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/phumberdroz/irsdk-go/pkg/sdk"
-	"github.com/phumberdroz/irsdk-go/pkg/session"
-	"github.com/phumberdroz/irsdk-go/pkg/telemetry"
+	"github.com/0xkalle/irsdk-go/pkg/sdk"
+	"github.com/0xkalle/irsdk-go/pkg/session"
+	"github.com/0xkalle/irsdk-go/pkg/telemetry"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"

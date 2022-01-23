@@ -64,7 +64,7 @@ type WeekendInfo struct {
 	TrackLength            string           `yaml:"TrackLength"`
 	TrackDisplayName       string           `yaml:"TrackDisplayName"`
 	TrackDisplayShortName  string           `yaml:"TrackDisplayShortName"`
-	TrackConfigName        interface{}      `yaml:"TrackConfigName"`
+	TrackConfigName        string           `yaml:"TrackConfigName"`
 	TrackCity              string           `yaml:"TrackCity"`
 	TrackCountry           string           `yaml:"TrackCountry"`
 	TrackAltitude          string           `yaml:"TrackAltitude"`
@@ -264,8 +264,8 @@ type DriverInfo struct {
 	Drivers                   []Drivers `yaml:"Drivers"`
 }
 type Sectors struct {
-	SectorNum      int `yaml:"SectorNum"`
-	SectorStartPct int `yaml:"SectorStartPct"`
+	SectorNum      int     `yaml:"SectorNum"`
+	SectorStartPct float32 `yaml:"SectorStartPct"`
 }
 type SplitTimeInfo struct {
 	Sectors []Sectors `yaml:"Sectors"`
